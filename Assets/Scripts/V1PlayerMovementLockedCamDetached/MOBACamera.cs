@@ -16,9 +16,11 @@ public class MOBACamera : MonoBehaviour
         // Follow the target without rotating
         transform.position = camTarget.position + offset;
 
+        // TODO: fix zoom, currently it doesnt zoom in and out centered correctly
         // Zoom in and out with scroll wheel
         float scroll = Mouse.current.scroll.ReadValue().y;
         offset.y -= scroll * zoomSpeed;
+        offset.z += scroll * zoomSpeed;
         offset.y = Mathf.Clamp(offset.y, minZoom, maxZoom);
     }
 }
