@@ -2,8 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
 // [RequireComponent] directive make it required for the GameObject it is attached to have a component of the type specified.
-// In this case, the type is Rigidbody. It can be added as many as needed.
-[RequireComponent(typeof(Rigidbody))]
+// In this case, the type is NavMeshAgent. It can be added as many as needed.
 [RequireComponent(typeof(NavMeshAgent))]
 public class PlayerController : MonoBehaviour
 {
@@ -11,15 +10,11 @@ public class PlayerController : MonoBehaviour
     public float speed = 0;
     
     // PRIVATE VARIABLES
-    private Rigidbody body;
     private NavMeshAgent navMeshAgent;
-    private float moveX;
-    private float moveY;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        body = GetComponent<Rigidbody>();
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
@@ -44,7 +39,5 @@ public class PlayerController : MonoBehaviour
                 navMeshAgent.SetDestination(raycastHit.point);
             }
         }
-        // Vector3 movement = new(moveX, 0.0f, moveY);
-        // body.AddForce(movement * speed);
     }
 }
