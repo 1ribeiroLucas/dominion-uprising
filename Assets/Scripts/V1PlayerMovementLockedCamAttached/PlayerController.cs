@@ -32,9 +32,8 @@ public class PlayerController : MonoBehaviour
         if (Mouse.current.rightButton.isPressed)
         {
             Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-            RaycastHit raycastHit;
 
-            if (Physics.Raycast(ray, out raycastHit))
+            if (Physics.Raycast(ray, out RaycastHit raycastHit))
             {
                 navMeshAgent.SetDestination(raycastHit.point);
             }
