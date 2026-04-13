@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
-
+// 'RequireComponent(typeof(Component))": a directive that makes it required for the GameObject it is currently
+//attached to have a component of the type specified. Add it as many as you need.
 [RequireComponent(typeof(NavMeshAgent))]
-public class PlayerControllerDetachedCam : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     // PUBLIC
     public float speed = 0;
